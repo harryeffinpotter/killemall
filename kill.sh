@@ -45,7 +45,7 @@ appkill(){
 }
 clear
 if [[ $# -eq 0 ]]; then
-echo -e "${Red}====${Yellow}====${Green}====${Cyan}====${Blue}====${Purple}====\n= ${On_Red}${Red}KILL 'EM ALL${Color_Off}${Green} by ${Cyan}H${Red}F${Green}P${Color_Off} ${BIPurple} =\n${BIPurple}====${BIBlue}====${BICyan}====${BIGreen}====${BIYellow}====${BIRed}====\n${Color_Off}"
+echo -e "${Red}====${Yellow}====${Green}====${Cyan}====${Blue}====${Purple}====\n= ${On_Red}${Red}KILL 'EM ALL${Color_Off}${Green} by ${Cyan}Y${Red}S${Green}G${Color_Off} ${BIPurple} =\n${BIPurple}====${BIBlue}====${BICyan}====${BIGreen}====${BIYellow}====${BIRed}====\n${Color_Off}"
 sleep 1.5
 clear
 if test -f _dontwarn; then
