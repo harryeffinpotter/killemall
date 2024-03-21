@@ -31,7 +31,10 @@ appkill(){
 
                 if [[ "$commandname" != *"kill.sh"* ]]; then
                         sudo kill -9 "$proc" 2>/dev/null
-                        result="$?"
+                        code="$?"
+                        if [[ $code == 0 ]]; then
+                            result=0
+                        fi
                         commands="$commandname$NEWLINE$commands"
                 fi
         done
