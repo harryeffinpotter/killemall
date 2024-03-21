@@ -27,7 +27,12 @@ appkill(){
         procs="$(pgrep -f "$process_to_kill")" 2>/dev/null
         commands=''
         for proc in $procs; do
-                commandname="$proc: $(ps -p "$proc" -o command | sed -n '2 p')"
+                listit=0
+                procname=$(ps -p "$proc" -o command | sed -n '2 p')
+                if [ -n "${procname// }" ]; then
+                    listit=1
+                fi
+                commandname="$proc: $procname"
 
                 if [[ "$commandname" != *"kill.sh"* ]]; then
                         sudo kill -9 "$proc" 2>/dev/null
@@ -35,11 +40,13 @@ appkill(){
                         if [[ $code == 0 ]]; then
                             result=0
                         fi
+                        if [[ $listit == 1 ]]; then
                         commands="$commandname$NEWLINE$commands"
+                        fi
                 fi
         done
         if [[ $result == 0 ]]; then
-                echo -e "\n===================\nProcess(es) killed:\n==================="
+                echo -e "\n===================\nProcess(es) ${Red}killed${Color_Off}:\n==================="
                 printf "%s\n" "$commands"
                 commands=''
                 exit_code=0
