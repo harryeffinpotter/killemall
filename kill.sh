@@ -20,7 +20,7 @@ NEWLINE='
 '
 commands=''
 IFS="$NEWLINE"
-
+exit_code=0
 appkill(){
         result=1
         clear
@@ -39,8 +39,10 @@ appkill(){
                 echo -e "\n===================\nProcess(es) killed:\n==================="
                 printf "%s\n" "$commands"
                 commands=''
+                exit_code=0
         else
                 echo -e "** ! ${Red}ERROR${Color_Off} ! **\nNo processes containing ${Cyan}'$process_to_kill'${Color_Off} found.\n"
+                exit_code=1
         fi
 }
 clear
@@ -80,7 +82,7 @@ if [ -n "$2" ]; then
 	fi
         appkill
         if [[ "$sneaky_assassin_mode" == 1 ]]; then
-                exit 0
+            exit $exit_code
         fi
 elif [[ $# -gt 0 ]]; then
     process_to_kill=$*
