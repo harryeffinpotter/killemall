@@ -10,9 +10,12 @@
 # Error codes:
 # 0 = Success
 # 1 = No processes found.
-# 2 = Other
+# 2 = Othe
 
-source ./colors
+
+DIR="$( dirname -- "${BASH_SOURCE[0]}"; )";   # Get the directory name
+DIR="$( realpath -e -- "$DIR"; )";  # Resolve its full path
+source $DIR/colors
 NEWLINE='
 '
 commands=''
