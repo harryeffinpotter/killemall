@@ -8,7 +8,7 @@ You can use it in scripts and opt for silent output, which its not actually sile
 ```
 cd ~
 git clone https://github.com/harryeffinpotter/killemall
-chmod +x ~/killemall/kill.sh \"$*\"
+chmod +x ~/killemall/kill.sh
 ```
 Then add this function to your zshrc or bashrc:
 
