@@ -14,6 +14,6 @@ Then add this function to your zshrc or bashrc:
 
  ```
 K(){
- ~/killemall/kill.sh \"$*\"
+ ~/killemall/kill.sh "$*"
  }
 ```
